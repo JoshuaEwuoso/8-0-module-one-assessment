@@ -28,7 +28,17 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  let title = [];
+  for (movie of movies) {
+    if (movie.title) {
+      title.push(movie.title)
+    } else {
+      return []
+    }
+  }
+  return title
+}
 
 /**
  * getHighestMetascore()
@@ -41,7 +51,7 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {}
 
 /**
  * getAverageIMDBRating()
@@ -54,7 +64,7 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating(movies) {}
 
 /**
  * countByRating()
@@ -67,7 +77,7 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {}
 
 /**
  * findById()
@@ -83,7 +93,7 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {}
 
 /**
  * filterByGenre()
@@ -105,7 +115,7 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -129,7 +139,7 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -142,7 +152,7 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {}
 
 // Do not change anything below this line.
 module.exports = {
