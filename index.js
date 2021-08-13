@@ -29,11 +29,11 @@ const exampleMovies = require("./movies");
     ];
  */
 function getAllMovieTitles(movies) {
-  let title = [];
+let title = [];
   for (movie of movies) {
     if (movie.title) {
       title.push(movie.title)
-    } else {
+  } else {
       return []
     }
   }
@@ -52,15 +52,15 @@ function getAllMovieTitles(movies) {
  *  //> 96
  */
 function getHighestMetascore(movies) {
-  let highest = 0;
+let highest = 0;
 let arrScore = [];
   for (let i = 0; i < movies.length; i++) {
     let movie = movies[i]
       if (movie.metascore !== 'undefined') {
-    arrScore.push(movie.metascore)
-    } else {
-        return 0
-    }
+        arrScore.push(movie.metascore)
+  } else {
+      return 0
+  }
     highest = Math.max(...arrScore)
   }
     return highest
@@ -78,16 +78,15 @@ let arrScore = [];
  *  //> 7.76
  */
 function getAverageIMDBRating(movies) {
-  let total = 0
+let total = 0;
 let average;
   if(movies.length === 0){
     return 0
-}
-for (movie of movies){
+  }
+    for (movie of movies){
       total += Number(movie.imdbRating)
     }
     average = total / movies.length
-  
     return average
 }
 
@@ -103,18 +102,18 @@ for (movie of movies){
  *  //> { G: 3, PG: 7 }
  */
 function countByRating(movies) {
-  let rating = {}
-    for (movie of movies) {
-      if(rating[movie.rated]) {
-        rating[movie.rated]++
+let rating = {};
+  for (movie of movies) {
+    if(rating[movie.rated]) {
+      rating[movie.rated]++
   } else {
       rating[movie.rated] = 1
   }
-  if(movies.length === 0) {
-    return {}
+    if(movies.length === 0) {
+      return {}
+    }
   }
-}
-return rating
+    return rating
 }
 
 /**
@@ -202,7 +201,7 @@ function filterByGenre(movies, genre) {
  */
 function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
   let movieYear = [];
-  for (const movie of movies) {
+  for (movie of movies) {
     let releaseArray = movie.released.split(' ');
     let releaseYear = releaseArray[2];
     if (releaseYear <= year) {
@@ -223,7 +222,19 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie(movies) {}
+function getBiggestBoxOfficeMovie(movies) {
+  let highest = 0;
+  let title = null;
+  let currMovie;
+  for(let movie of movies) {
+    currMovie = Number(movie.boxOffice.slice(1).split(",").join(""));
+      if(currMovie > highest) {
+      highest = currMovie
+      title = movie.title
+    }
+  }
+  return title
+}
 
 // Do not change anything below this line.
 module.exports = {
