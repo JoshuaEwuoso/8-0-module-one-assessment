@@ -77,7 +77,19 @@ let arrScore = [];
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating(movies) {}
+function getAverageIMDBRating(movies) {
+  let total = 0
+let average;
+  if(movies.length === 0){
+    return 0
+}
+for (movie of movies){
+      total += Number(movie.imdbRating)
+    }
+    average = total / movies.length
+  
+    return average
+}
 
 /**
  * countByRating()
