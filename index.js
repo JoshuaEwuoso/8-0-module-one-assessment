@@ -102,7 +102,20 @@ for (movie of movies){
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating(movies) {}
+function countByRating(movies) {
+  let rating = {}
+    for (movie of movies) {
+      if(rating[movie.rated]) {
+        rating[movie.rated]++
+  } else {
+      rating[movie.rated] = 1
+  }
+  if(movies.length === 0) {
+    return {}
+  }
+}
+return rating
+}
 
 /**
  * findById()
